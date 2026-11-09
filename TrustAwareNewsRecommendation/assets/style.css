@@ -1,0 +1,680 @@
+/* ==========================================================
+   TRUSTNEWS AI DESIGN SYSTEM
+   Professional Dark Mode · Trust Intelligence · Editorial News Cards
+   Google News / Ground News Style Polish
+   ========================================================== */
+
+/* ── Google Font Import ───────────────────────────────────── */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
+
+/* ── Root Color Variables ─────────────────────────────────── */
+:root {
+    --bg-main: #080c14;
+    --bg-card: #0f172a;
+    --bg-card-hover: #131d36;
+    --bg-card-subtle: #1e293b;
+    --border-color: #1e293b;
+    --border-light: #334155;
+    --text-primary: #f8fafc;
+    --text-secondary: #94a3b8;
+    --text-muted: #64748b;
+    --accent: #0ea5e9;
+    --accent-hover: #38bdf8;
+    --accent-glow: rgba(14, 165, 233, 0.25);
+    --success: #10b981;
+    --success-bg: rgba(16, 185, 129, 0.12);
+    --warning: #f59e0b;
+    --warning-bg: rgba(245, 158, 11, 0.12);
+    --danger: #ef4444;
+    --danger-bg: rgba(239, 68, 68, 0.12);
+}
+
+/* ── Main Canvas & Typography ────────────────────────────── */
+.stApp {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif !important;
+    background-color: #080c14 !important;
+    color: #f1f5f9 !important;
+}
+
+body {
+    background-color: #080c14 !important;
+    color: #f1f5f9 !important;
+}
+
+/* ── Brand Header Bar ────────────────────────────────────── */
+.tn-brand-header {
+    background: linear-gradient(135deg, #0f172a 0%, #111e38 100%);
+    border: 1px solid #1e293b;
+    border-radius: 14px;
+    padding: 1.1rem 1.8rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1.8rem;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.45);
+}
+
+.tn-brand-title {
+    font-size: 1.7rem;
+    font-weight: 900;
+    letter-spacing: -0.04em;
+    color: #ffffff;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin: 0;
+}
+
+.tn-brand-title span.tn-accent {
+    color: #0ea5e9;
+}
+
+.tn-brand-subtitle {
+    font-size: 0.75rem;
+    color: #94a3b8;
+    font-weight: 600;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    margin-top: 3px;
+}
+
+/* ── Animated Live Indicator ─────────────────────────────── */
+.tn-live-pill {
+    background: rgba(16, 185, 129, 0.15);
+    border: 1px solid #10b981;
+    color: #34d399;
+    font-size: 0.72rem;
+    font-weight: 700;
+    padding: 5px 12px;
+    border-radius: 9999px;
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+}
+
+.tn-live-dot {
+    width: 8px;
+    height: 8px;
+    background-color: #10b981;
+    border-radius: 50%;
+    box-shadow: 0 0 10px #10b981;
+    animation: tn-pulse 2s infinite ease-in-out;
+}
+
+@keyframes tn-pulse {
+    0% { opacity: 1; transform: scale(1); }
+    50% { opacity: 0.35; transform: scale(0.85); box-shadow: 0 0 4px #10b981; }
+    100% { opacity: 1; transform: scale(1); }
+}
+
+/* ── KPI / Statistics Cards ──────────────────────────────── */
+.tn-kpi-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1rem;
+    margin-bottom: 1.8rem;
+}
+
+.tn-stat-card {
+    background: linear-gradient(180deg, #0f172a 0%, #0d1527 100%);
+    border: 1px solid #1e293b;
+    border-radius: 12px;
+    padding: 1.25rem 1rem;
+    text-align: center;
+    transition: all 0.25s ease;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.25);
+}
+
+.tn-stat-card:hover {
+    border-color: #0ea5e9;
+    box-shadow: 0 6px 20px rgba(14, 165, 233, 0.16);
+    transform: translateY(-2px);
+}
+
+.tn-stat-num {
+    font-size: 2.1rem;
+    font-weight: 900;
+    color: #0ea5e9;
+    letter-spacing: -0.03em;
+    line-height: 1.1;
+}
+
+.tn-stat-label {
+    font-size: 0.75rem;
+    color: #94a3b8;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    margin-top: 0.4rem;
+}
+
+/* ── Hero Story Card ─────────────────────────────────────── */
+.tn-hero-card {
+    background: linear-gradient(135deg, #0d1933 0%, #0f172a 100%);
+    border: 1px solid #1e293b;
+    border-radius: 16px;
+    overflow: hidden;
+    margin-bottom: 2rem;
+    display: flex;
+    flex-direction: row;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.tn-hero-card:hover {
+    border-color: #0ea5e9;
+    box-shadow: 0 14px 40px rgba(14, 165, 233, 0.2);
+    transform: translateY(-2px);
+}
+
+.tn-hero-img-wrap {
+    width: 45%;
+    min-width: 320px;
+    position: relative;
+    overflow: hidden;
+    background-color: #1e293b;
+}
+
+.tn-hero-img-wrap img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.5s ease;
+}
+
+.tn-hero-card:hover .tn-hero-img-wrap img {
+    transform: scale(1.05);
+}
+
+.tn-hero-content {
+    padding: 2rem;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.tn-hero-badge-row {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 0.9rem;
+    flex-wrap: wrap;
+}
+
+.tn-hero-title {
+    font-size: 1.6rem;
+    font-weight: 800;
+    color: #ffffff;
+    line-height: 1.35;
+    margin-bottom: 0.8rem;
+    letter-spacing: -0.02em;
+}
+
+.tn-hero-summary {
+    font-size: 0.98rem;
+    color: #94a3b8;
+    line-height: 1.65;
+    margin-bottom: 1.4rem;
+}
+
+.tn-hero-meta {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-top: 1px solid #1e293b;
+    padding-top: 1rem;
+    font-size: 0.82rem;
+    color: #64748b;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+/* ── Standard Story Feed Cards ───────────────────────────── */
+.tn-story-card {
+    background-color: #0f172a;
+    border: 1px solid #1e293b;
+    border-radius: 14px;
+    overflow: hidden;
+    margin-bottom: 1.4rem;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.3);
+}
+
+.tn-story-card:hover {
+    border-color: #0ea5e9;
+    box-shadow: 0 10px 28px rgba(14, 165, 233, 0.15);
+    transform: translateY(-3px);
+}
+
+.tn-card-thumb-wrap {
+    width: 100%;
+    height: 180px;
+    position: relative;
+    overflow: hidden;
+    background-color: #1e293b;
+}
+
+.tn-card-thumb-wrap img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.4s ease;
+}
+
+.tn-story-card:hover .tn-card-thumb-wrap img {
+    transform: scale(1.05);
+}
+
+.tn-card-body {
+    padding: 1.25rem 1.4rem;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.tn-card-tags {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 0.7rem;
+    flex-wrap: wrap;
+}
+
+.tn-headline {
+    font-size: 1.15rem;
+    font-weight: 700;
+    color: #f8fafc;
+    line-height: 1.4;
+    margin-bottom: 0.6rem;
+}
+
+.tn-summary {
+    font-size: 0.88rem;
+    color: #94a3b8;
+    line-height: 1.55;
+    margin-bottom: 0.9rem;
+    flex: 1;
+}
+
+.tn-card-footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-top: 1px solid #1e293b;
+    padding-top: 0.85rem;
+    margin-top: 0.5rem;
+    font-size: 0.8rem;
+    color: #64748b;
+}
+
+/* ── Trust Badges & Tier Indicators ──────────────────────── */
+.tn-badge-high {
+    background: rgba(16, 185, 129, 0.15);
+    border: 1px solid #10b981;
+    color: #34d399;
+    padding: 3px 9px;
+    border-radius: 6px;
+    font-size: 0.72rem;
+    font-weight: 700;
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+}
+
+.tn-badge-mixed {
+    background: rgba(245, 158, 11, 0.15);
+    border: 1px solid #f59e0b;
+    color: #fbbf24;
+    padding: 3px 9px;
+    border-radius: 6px;
+    font-size: 0.72rem;
+    font-weight: 700;
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+}
+
+.tn-badge-low {
+    background: rgba(239, 68, 68, 0.15);
+    border: 1px solid #ef4444;
+    color: #f87171;
+    padding: 3px 9px;
+    border-radius: 6px;
+    font-size: 0.72rem;
+    font-weight: 700;
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+}
+
+.tn-badge-category {
+    background: rgba(14, 165, 233, 0.12);
+    border: 1px solid #0ea5e9;
+    color: #38bdf8;
+    padding: 3px 9px;
+    border-radius: 6px;
+    font-size: 0.72rem;
+    font-weight: 700;
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+}
+
+.tn-badge-source {
+    background: #1e293b;
+    border: 1px solid #334155;
+    color: #cbd5e1;
+    padding: 3px 9px;
+    border-radius: 6px;
+    font-size: 0.72rem;
+    font-weight: 600;
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+}
+
+/* ── Credibility Progress Bar ────────────────────────────── */
+.tn-cred-bar-wrap {
+    width: 100%;
+    margin-top: 0.4rem;
+    margin-bottom: 0.6rem;
+}
+
+.tn-cred-bar-meta {
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.74rem;
+    font-weight: 700;
+    color: #94a3b8;
+    margin-bottom: 3px;
+}
+
+.tn-cred-track {
+    width: 100%;
+    height: 6px;
+    background: #1e293b;
+    border-radius: 999px;
+    overflow: hidden;
+}
+
+.tn-cred-fill {
+    height: 100%;
+    border-radius: 999px;
+    transition: width 0.5s ease-in-out;
+}
+
+.tn-cred-fill-high {
+    background: linear-gradient(90deg, #10b981, #34d399);
+}
+
+.tn-cred-fill-mixed {
+    background: linear-gradient(90deg, #f59e0b, #fbbf24);
+}
+
+.tn-cred-fill-low {
+    background: linear-gradient(90deg, #ef4444, #f87171);
+}
+
+/* ── Multi-Objective Score Chips (R, C, E, S, D, N, F) ───── */
+.tn-chips-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 5px;
+    margin-top: 0.5rem;
+    margin-bottom: 0.5rem;
+}
+
+.tn-chip {
+    background: #1e293b;
+    border: 1px solid #334155;
+    border-radius: 4px;
+    padding: 2px 6px;
+    font-size: 0.70rem;
+    font-weight: 700;
+    color: #94a3b8;
+    display: inline-flex;
+    align-items: center;
+    gap: 3px;
+}
+
+.tn-chip b {
+    color: #38bdf8;
+}
+
+/* ── Sidebar Polish & Navigation Links ───────────────────── */
+[data-testid="stSidebar"] {
+    background-color: #0b1120 !important;
+    border-right: 1px solid #1e293b !important;
+}
+
+[data-testid="stSidebar"] hr {
+    border-color: #1e293b !important;
+    margin: 1rem 0 !important;
+}
+
+/* Sidebar navigation links as polished items */
+[data-testid="stSidebar"] a {
+    color: #94a3b8 !important;
+    text-decoration: none !important;
+    font-weight: 600 !important;
+    font-size: 0.90rem !important;
+    display: inline-block;
+    padding: 3px 6px;
+    border-radius: 6px;
+    transition: all 0.2s ease;
+}
+
+[data-testid="stSidebar"] a:hover {
+    color: #38bdf8 !important;
+    background: rgba(14, 165, 233, 0.12);
+    text-decoration: none !important;
+}
+
+[data-testid="stSidebar"] p {
+    margin-bottom: 0.35rem !important;
+}
+
+/* ── Tab System ──────────────────────────────────────────── */
+.stTabs [data-baseweb="tab-list"] {
+    gap: 8px !important;
+    background-color: transparent !important;
+    border-bottom: 1px solid #1e293b !important;
+    padding-bottom: 4px !important;
+}
+
+.stTabs [data-baseweb="tab"] {
+    border-radius: 8px 8px 0 0 !important;
+    background-color: #0f172a !important;
+    color: #94a3b8 !important;
+    border: 1px solid #1e293b !important;
+    border-bottom: none !important;
+    padding: 8px 16px !important;
+    font-weight: 700 !important;
+    font-size: 0.88rem !important;
+    transition: all 0.2s ease !important;
+}
+
+.stTabs [data-baseweb="tab"]:hover {
+    color: #f8fafc !important;
+    background-color: #1e293b !important;
+}
+
+.stTabs [aria-selected="true"] {
+    background-color: #1e293b !important;
+    color: #38bdf8 !important;
+    border-top: 2px solid #0ea5e9 !important;
+}
+
+/* ── Standard Form & Button Styling ──────────────────────── */
+.stButton > button {
+    border-radius: 8px !important;
+    font-weight: 700 !important;
+    border: 1px solid #334155 !important;
+    background: #0f172a !important;
+    color: #f1f5f9 !important;
+    transition: all 0.2s ease !important;
+}
+
+.stButton > button:hover {
+    border-color: #0ea5e9 !important;
+    color: #38bdf8 !important;
+    background: #1e293b !important;
+    box-shadow: 0 4px 12px rgba(14, 165, 233, 0.2) !important;
+}
+
+.stButton > button[kind="primary"] {
+    background: linear-gradient(135deg, #0ea5e9, #0284c7) !important;
+    border: none !important;
+    color: #ffffff !important;
+    box-shadow: 0 4px 14px rgba(14, 165, 233, 0.35) !important;
+}
+
+.stButton > button[kind="primary"]:hover {
+    background: linear-gradient(135deg, #38bdf8, #0ea5e9) !important;
+    box-shadow: 0 6px 18px rgba(14, 165, 233, 0.5) !important;
+    transform: translateY(-1px);
+}
+
+/* Input Fields */
+div[data-baseweb="input"] {
+    background-color: #0f172a !important;
+    border: 1px solid #1e293b !important;
+    border-radius: 8px !important;
+    color: #f8fafc !important;
+}
+
+div[data-baseweb="input"]:focus-within {
+    border-color: #0ea5e9 !important;
+    box-shadow: 0 0 0 1px #0ea5e9 !important;
+}
+
+textarea {
+    background-color: #0f172a !important;
+    border: 1px solid #1e293b !important;
+    border-radius: 8px !important;
+    color: #f8fafc !important;
+}
+
+textarea:focus {
+    border-color: #0ea5e9 !important;
+}
+
+/* ── Metric Cards ────────────────────────────────────────── */
+[data-testid="stMetric"] {
+    background: #0f172a !important;
+    border: 1px solid #1e293b !important;
+    border-radius: 12px !important;
+    padding: 0.9rem 1.1rem !important;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.2) !important;
+}
+
+[data-testid="stMetricLabel"] {
+    color: #94a3b8 !important;
+    font-weight: 700 !important;
+    font-size: 0.8rem !important;
+    text-transform: uppercase !important;
+    letter-spacing: 0.05em !important;
+}
+
+[data-testid="stMetricValue"] {
+    color: #0ea5e9 !important;
+    font-weight: 900 !important;
+    font-size: 1.8rem !important;
+}
+
+/* ── Expanders ───────────────────────────────────────────── */
+[data-testid="stExpander"] {
+    background: #0f172a !important;
+    border: 1px solid #1e293b !important;
+    border-radius: 10px !important;
+    margin-bottom: 0.8rem !important;
+}
+
+[data-testid="stExpander"] summary {
+    font-weight: 700 !important;
+    color: #cbd5e1 !important;
+}
+
+[data-testid="stExpander"] summary:hover {
+    color: #38bdf8 !important;
+}
+
+/* ── DataFrames & Tables ─────────────────────────────────── */
+[data-testid="stDataFrame"] {
+    border: 1px solid #1e293b !important;
+    border-radius: 10px !important;
+    overflow: hidden !important;
+    background: #0f172a !important;
+}
+
+/* ── Verdict Badge for Inspector ─────────────────────────── */
+.tn-verdict-box {
+    border-radius: 14px;
+    padding: 1.5rem;
+    text-align: center;
+    margin-bottom: 1.5rem;
+}
+
+.tn-verdict-real {
+    background: linear-gradient(135deg, rgba(16, 185, 129, 0.2), rgba(6, 78, 59, 0.4));
+    border: 2px solid #10b981;
+    box-shadow: 0 0 25px rgba(16, 185, 129, 0.2);
+}
+
+.tn-verdict-fake {
+    background: linear-gradient(135deg, rgba(239, 68, 68, 0.2), rgba(127, 29, 29, 0.4));
+    border: 2px solid #ef4444;
+    box-shadow: 0 0 25px rgba(239, 68, 68, 0.2);
+}
+
+.tn-verdict-title {
+    font-size: 2.2rem;
+    font-weight: 900;
+    letter-spacing: -0.02em;
+    margin: 0;
+}
+
+.tn-verdict-sub {
+    font-size: 0.95rem;
+    font-weight: 600;
+    margin-top: 0.4rem;
+    color: #e2e8f0;
+}
+
+/* ── Academic Footer ─────────────────────────────────────── */
+.tn-footer {
+    border-top: 1px solid #1e293b;
+    padding: 2rem 1rem 1.5rem 1rem;
+    margin-top: 3.5rem;
+    text-align: center;
+    color: #64748b;
+    font-size: 0.82rem;
+    line-height: 1.6;
+}
+
+.tn-footer b {
+    color: #94a3b8;
+}
+
+/* ── Scrollbars ──────────────────────────────────────────── */
+::-webkit-scrollbar { width: 6px; height: 6px; }
+::-webkit-scrollbar-track { background: #080c14; }
+::-webkit-scrollbar-thumb { background: #1e293b; border-radius: 3px; }
+::-webkit-scrollbar-thumb:hover { background: #0ea5e9; }
